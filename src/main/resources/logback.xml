@@ -1,0 +1,20 @@
+<!--
+  ~ Copyright (C) Exaring AG - All Rights Reserved
+  -->
+
+<configuration>
+
+    <conversionRule conversionWord="vcl"
+                    converterClass="io.github.tsegismont.vertx.contextual.logging.LogbackConverter"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] [%vcl{trace.id}] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

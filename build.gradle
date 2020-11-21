@@ -1,0 +1,32 @@
+plugins {
+  id 'java'
+  id 'application'
+}
+
+repositories {
+  jcenter()
+  maven {
+    url "https://oss.sonatype.org/content/repositories/iovertx-3868/"
+  }
+  maven {
+    url "https://jitpack.io"
+  }
+}
+
+version = '4.0.0.CR1'
+sourceCompatibility = '1.8'
+
+dependencies {
+  implementation "io.vertx:vertx-core:$version"
+  implementation "io.vertx:vertx-web:$version"
+  implementation "io.vertx:vertx-web-openapi:$version"
+  implementation "io.vertx:vertx-web-client:$version"
+
+  implementation ('io.github.tsegismont:vertx-contextual-logging:1.0.0-alpha') {
+    exclude group: 'io.vertx', module: 'vertx-core'
+  }
+
+  implementation 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+mainClassName = 'io.vertx.example.HelloWorldEmbedded'
