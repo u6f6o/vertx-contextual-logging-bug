@@ -1,10 +1,14 @@
-= Vert.x 4.0.0.CR1 Header case-insensitivity issue
+= Vert.x 4.0.0.CR1 Contextual logging issue
 
-Works:
+1.) Start the server 
 
-    curl --location --request GET 'http://localhost:8080/hello-world' --header 'Authorization: fkelwfelwfew'
 
-Doesn't:
+    ./gradlew run
 
-    curl --location --request GET 'http://localhost:8080/hello-world' --header 'authorization: fkelwfelwfew'
+2.) Send request with TRACE-Id
 
+
+    curl -H 'TRACE-ID: 1232132132' http://localhost:8080/hello-world
+
+
+3.) Observer logs 
